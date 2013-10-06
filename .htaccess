@@ -1,0 +1,11 @@
+# 需先設定 Apache 的 http-vhosts.conf 或 httpd.conf
+# 將 <Directory "X:/Apache2.2/www"> 其中的 AllowOverride None
+# 改成 AllowOverride All
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
