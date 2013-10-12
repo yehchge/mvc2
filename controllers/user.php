@@ -26,7 +26,7 @@ class User extends Controller {
 	{
 		$data = array();
 		$data['login'] = $_POST['login'];
-		$data['password'] = MD5($_POST['password']);
+		$data['password'] = $_POST['password'];
 		$data['role'] = $_POST['role'];
 		
 		// @TODO: Do your checking!
@@ -46,7 +46,7 @@ class User extends Controller {
 		$data = array();
 		$data['id'] = $id;
 		$data['login'] = $_POST['login'];
-		$data['password'] = MD5($_POST['password']);
+		$data['password'] = $_POST['password'];
 		$data['role'] = $_POST['role'];
 		
 		// @TODO: Do your checking!
