@@ -3,18 +3,18 @@
 <head>
 	<title>Test</title>
 	<link rel="stylesheet" href="<?php echo URL; ?>public/css/default.css" />
-	<script type="text/javascript" src="<?php echo URL; ?>public/js/jquery.js"></script>
-	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> -->
-
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<?php echo URL; ?>public/js/custom.js"></script>
 	<?php
-		if (isset($this->js)) 
+	if (isset($this->js)) 
+	{
+		foreach ($this->js as $js)
 		{
-			foreach ($this->js as $js)
-			{
-				echo '<script type="text/javascript" src="'.URL.'views/'.$js.'"></script>';
-			}
+			echo '<script type="text/javascript" src="'.URL.'views/'.$js.'"></script>';
 		}
+	}
 	?>
 </head>
 <body>
