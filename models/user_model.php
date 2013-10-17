@@ -9,12 +9,12 @@ class User_Model extends Model
 	
 	public function userList()
 	{
-		return $this->db->select('SELECT id, login, role FROM user');
+		return $this->db->select('SELECT userid, login, role FROM user');
 	}
 	
-	public function userSingleList($id)
+	public function userSingleList($userid)
 	{
-		return $this->db->select('SELECT id, login, role FROM user WHERE id = :id', array(':id' => $id));
+		return $this->db->select('SELECT userid, login, role FROM user WHERE userid = :userid', array(':userid' => $userid));
 	}
 	
 	
@@ -35,17 +35,17 @@ class User_Model extends Model
 			'role' => $data['role']
 		);
 		
-		$this->db->update('user', $postData , "`id` = {$data['id']}");
+		$this->db->update('user', $postData , "`userid` = {$data['userid']}");
 	}
 	
-	public function delete($id)
+	public function delete($userid)
 	{
-		$result = $this->db->select('SELECT role FROM user WHERE id = :id', array(':id' => $id));
+		$result = $this->db->select('SELECT role FROM user WHERE userid = :userid', array(':userid' => $userid));
 
 		if ($result[0]['role'] == 'owner')
 		return false;
 		
-		$this->db->delete('user', "id = '$id'");
+		$this->db->delete('user', "userid = '$userid'");
 	}
 	
 
