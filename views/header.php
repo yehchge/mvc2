@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title><?=(isset($this->title)) ? $this->title : 'MVC'; ?></title>
+	<title><?=(isset($this->title)) ? $this->title : 'MVC2'; ?></title>
 	<link rel="stylesheet" href="<?php echo URL; ?>public/css/default.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -22,8 +22,6 @@
 <?php Session::init(); ?>
 
 <div id="header">	
-
-	
 
 	<?php if (Session::get('loggedIn') == false ): ?>
 		<a href="<?php echo URL; ?>index">Index</a>

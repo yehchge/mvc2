@@ -1,14 +1,14 @@
 <?php
 
 // Always provide a TRAILING SLASH (/) AFTER A PATH
-define('URL', 'http://localhost/mvc/');
+define('URL', 'http://localhost/mvc2/');
 define('LIBS', 'libs/');
 
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'mvc');
-define('DB_USER', 'bill');
-define('DB_PASS', 'bill098');
+define('DB_NAME', 'mvc2');
+define('DB_USER', 'mvc2');
+define('DB_PASS', 'mvc2');
 
 // The sitewide hashkey, do not change this because its used for passwords!
 // This is for other hash keys... Not sure yet

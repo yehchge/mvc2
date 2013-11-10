@@ -5,6 +5,5 @@ PHP: Create Your Own MVC
 
 - 實作一個 PHP Framework for MVC.
 
-## 版本
-
-1. PHP: Create Your Own MVC (Part 1) 2013/10/06
+git remote add origin git@github.com:yehchge/mvc2.git
+git push -u origin master
