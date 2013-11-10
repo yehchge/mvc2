@@ -5,5 +5,5 @@ PHP: Create Your Own MVC
 
 - 實作一個 PHP Framework for MVC.
 
-git remote add origin git@github.com:yehchge/mvc2.git
-git push -u origin master
+git remote add origin git@github.com:yehchge/mvc2.git  
+git push -u origin master  
