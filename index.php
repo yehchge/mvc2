@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', true);
+
 require 'config.php';
 require 'util/Auth.php';
 
@@ -8,13 +11,13 @@ function __autoload($class) {
 	require LIBS . $class .'.php';
 }
 
-// Load the Bootstrap!
-$bootstrap = new Bootstrap();
+try {
 
-// Optional Path Settings
-//$bootstrap->setControllerPath();
-//$bootstrap->setModelPAth();
-//$bootstrap->setDefaultFile();
-//$bootstrap->setErrorFile();
+    // Load the Bootstrap!
+    $bootstrap = new Bootstrap();
 
-$bootstrap->init();
+    $bootstrap->init();
+
+} catch (Exception $e) {
+    echo 'Error: '.$e->getMessage();
+}
