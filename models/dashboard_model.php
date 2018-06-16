@@ -28,5 +28,4 @@ class DashBoard_Model extends Model {
 		$this->db->delete('data', "dataid=$id");
 	}
 
-
 }

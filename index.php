@@ -13,6 +13,10 @@ function __autoload($class) {
 
 try {
 
+    if(!isset($_SESSION['userid']) && empty($_SESSION['loggedIn'])){
+        Checklogin::CheckCookieLogin();
+    }
+
     // Load the Bootstrap!
     $bootstrap = new Bootstrap();
 
