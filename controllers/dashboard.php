@@ -1,12 +1,12 @@
 <?php
 
-class Dashboard extends Controller
+class dashboard extends Controller
 {
     public function __construct()
     {
         parent::__construct();
         Auth::handleLogin();
-        $this->view->js = array('dashboard/js/default.js');
+        $this->view->js = ['dashboard/js/default.js'];
     }
 
     public function index()
@@ -21,8 +21,8 @@ class Dashboard extends Controller
     public function logout()
     {
         Session::destroy();
-        setcookie("username", '', 0, "/");
-        header('location: ' . URL . 'login');
+        setcookie('username', '', 0, '/');
+        header('location: '.URL.'login');
         exit;
     }
 

@@ -11,9 +11,9 @@ class DashBoard_Model extends Model
     {
         $text = $_POST['text'];
 
-        $this->db->insert('data', array('text' => $text));
+        $this->db->insert('data', ['text' => $text]);
 
-        $data = array('text' => $text, 'id' => $this->db->lastInsertId());
+        $data = ['text' => $text, 'id' => $this->db->lastInsertId()];
         echo json_encode($data);
     }
 

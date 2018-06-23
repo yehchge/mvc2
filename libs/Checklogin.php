@@ -4,14 +4,14 @@ class Checklogin
 {
     public static function CheckCookieLogin()
     {
-        $login = isset($_COOKIE['username'])?trim($_COOKIE['username']):'';
+        $login = isset($_COOKIE['username']) ? trim($_COOKIE['username']) : '';
         if ($login) {
             $oDB = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
-            $sth = $oDB->prepare("SELECT userid, login, role FROM user WHERE
-                    login_session = :login");
-            $sth->execute(array(
-                ':login' => $login
-            ));
+            $sth = $oDB->prepare('SELECT userid, login, role FROM user WHERE
+                    login_session = :login');
+            $sth->execute([
+                ':login' => $login,
+            ]);
             $data = $sth->fetch();
 
             $count = $sth->rowCount();

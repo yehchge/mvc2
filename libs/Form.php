@@ -1,41 +1,37 @@
 <?php
 /**
- *
  * - Fill out a form
  *  - POST to PHP
  *  - Sanitize
  *  - Validate
  *  - Return Data
- *  - Write to Database
-
+ *  - Write to Database.
  */
 require 'Form/Val.php';
 class Form
 {
-
     /** @var array $_currentItem The immediately posted item */
     private $_currentItem = null;
-    
+
     /** @var array $_postData Stores the Posted Data */
-    private $_postData = array();
-    
+    private $_postData = [];
+
     /** @var object $_val The validator object */
-    private $_val = array();
+    private $_val = [];
 
     /** @var array $_error Holds the current forms errors */
-    private $_error = array();
-    
+    private $_error = [];
+
     /**
-     * __construct - Instantiates the validator class
-     *
+     * __construct - Instantiates the validator class.
      */
     public function __construct()
     {
         $this->_val = new Val();
     }
-    
+
     /**
-     * post - This is to run $_POST
+     * post - This is to run $_POST.
      *
      * @param string $field - The HTML fieldname to post
      */
@@ -46,9 +42,9 @@ class Form
 
         return $this;
     }
-    
+
     /**
-     * fetch - Return the posted data
+     * fetch - Return the posted data.
      *
      * @param mixed $fieldName
      *
@@ -66,9 +62,9 @@ class Form
             return $this->_postData;
         }
     }
-    
+
     /**
-     * val - This is to validate
+     * val - This is to validate.
      *
      * @param string $typeOfValidator A method from the Form/Val class
      * @param string $arg A property to validate against
@@ -84,14 +80,14 @@ class Form
         if ($error) {
             $this->_error[$this->_currentItem] = $error;
         }
-        
+
         return $this;
     }
-    
+
     /**
      * submit - Handles the form, and throws an exception upon error.
      *
-     * @return boolean
+     * @return bool
      *
      * @throws Exception
      */
@@ -102,7 +98,7 @@ class Form
         } else {
             $str = '';
             foreach ($this->_error as $key => $value) {
-                $str .= $key . ' => ' . $value . "\n";
+                $str .= $key.' => '.$value."\n";
             }
             throw new Exception($str);
         }

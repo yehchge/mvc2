@@ -11,9 +11,9 @@ class Bootstrap
     private $_defaultFile = 'index.php';
 
     /**
-     * Starts the Bootstrap
+     * Starts the Bootstrap.
      *
-     * @return boolean
+     * @return bool
      */
     public function init()
     {
@@ -24,6 +24,7 @@ class Bootstrap
         // eg: Visit http://localhost it loads Default Controller
         if (empty($this->_url[0])) {
             $this->_loadDefaultController();
+
             return false;
         }
 
@@ -32,25 +33,25 @@ class Bootstrap
     }
 
     /**
-     * (Optional) Set a custom path to controllers
+     * (Optional) Set a custom path to controllers.
      * @param string $path
      */
     public function setControllerPath($path)
     {
-        $this->_controllerPath = trim($path, '/') . '/';
+        $this->_controllerPath = trim($path, '/').'/';
     }
 
     /**
-     * (Optional) Set a custom path to models
+     * (Optional) Set a custom path to models.
      * @param string $path
      */
     public function setModelPath($path)
     {
-        $this->_modelPath = trim($path, '/') . '/';
+        $this->_modelPath = trim($path, '/').'/';
     }
 
     /**
-     * (Optional) Set a custom path to the error file
+     * (Optional) Set a custom path to the error file.
      * @param string $path Use the file name of your controller, eg: error.php
      */
     public function setErrorFile($path)
@@ -59,7 +60,7 @@ class Bootstrap
     }
 
     /**
-     * (Optional) Set a custom path to the error file
+     * (Optional) Set a custom path to the error file.
      * @param string $path Use the file name of your controller, eg: index.php
      */
     public function setDefaultFile($path)
@@ -67,9 +68,8 @@ class Bootstrap
         $this->_defaultFile = trim($path, '/');
     }
 
-
     /**
-     * Fetches the $_GET from 'url'
+     * Fetches the $_GET from 'url'.
      */
     private function _getUrl()
     {
@@ -80,24 +80,24 @@ class Bootstrap
     }
 
     /**
-     * This loads if there is no GET parameter passed
+     * This loads if there is no GET parameter passed.
      */
     private function _loadDefaultController()
     {
-        require $this->_controllerPath . $this->_defaultFile;
+        require $this->_controllerPath.$this->_defaultFile;
         $this->_controller = new Index();
-        $this->_controller->loadModel("index", $this->_modelPath);
+        $this->_controller->loadModel('index', $this->_modelPath);
         $this->_controller->index();
     }
 
     /**
-     * Load an existing controller if there IS a GET parameter passed
+     * Load an existing controller if there IS a GET parameter passed.
      *
-     * @return boolean|string
+     * @return bool|string
      */
     private function _loadExistingController()
     {
-        $file = $this->_controllerPath . $this->_url[0] . '.php';
+        $file = $this->_controllerPath.$this->_url[0].'.php';
 
         if (file_exists($file)) {
             require $file;
@@ -105,12 +105,13 @@ class Bootstrap
             $this->_controller->loadModel($this->_url[0], $this->_modelPath);
         } else {
             $this->_error();
+
             return false;
         }
     }
 
     /**
-     * If a method is passed in the GET url paremter
+     * If a method is passed in the GET url paremter.
      *
      *  http://localhost/controller/method/(param)/(param)/(param)
      *  url[0] = Cnotroller
@@ -125,7 +126,7 @@ class Bootstrap
 
         // Make sure the method we are calling exists
         if ($length > 1) {
-            if (!method_exists($this->_controller, $this->_url[1])) {
+            if (! method_exists($this->_controller, $this->_url[1])) {
                 $this->_error();
             }
         }
@@ -156,18 +157,17 @@ class Bootstrap
                 $this->_controller->index();
                 break;
 
-
         }
     }
 
     /**
-     * Display an error page if nothing exists
+     * Display an error page if nothing exists.
      *
      * @return booleans
      */
     private function _error()
     {
-        require_once $this->_controllerPath . $this->_errorFile;
+        require_once $this->_controllerPath.$this->_errorFile;
         $this->_controller = new Errors();
         $this->_controller->index();
         exit;

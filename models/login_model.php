@@ -9,12 +9,12 @@ class Login_Model extends Model
 
     public function run()
     {
-        $sth = $this->db->prepare("SELECT userid, login, role FROM user WHERE
-				login = :login AND password = :password");
-        $sth->execute(array(
+        $sth = $this->db->prepare('SELECT userid, login, role FROM user WHERE
+				login = :login AND password = :password');
+        $sth->execute([
             ':login' => $_POST['login'],
-            ':password' => Hash::create('md5', $_POST['password'], HASH_PASSWORD_KEY)
-        ));
+            ':password' => Hash::create('md5', $_POST['password'], HASH_PASSWORD_KEY),
+        ]);
         $data = $sth->fetch();
 
         $count = $sth->rowCount();
@@ -26,17 +26,17 @@ class Login_Model extends Model
             Session::set('loggedIn', true);
             Session::set('userid', $data['userid']);
 
-            $cookiehash = md5(sha1($data['login'] . Misc::sGetIP()));
+            $cookiehash = md5(sha1($data['login'].Misc::sGetIP()));
 
             if (isset($_POST['remember'])) {
-                setcookie("username", $cookiehash, time()+3600*24*365, "/");
+                setcookie('username', $cookiehash, time() + 3600 * 24 * 365, '/');
             } else {
-                setcookie("username", $cookiehash, 0, "/");
+                setcookie('username', $cookiehash, 0, '/');
             }
 
-            $postData = array(
-                'login_session' => $cookiehash
-            );
+            $postData = [
+                'login_session' => $cookiehash,
+            ];
 
             $this->db->update('user', $postData, "`userid` = '{$data['userid']}'");
 
