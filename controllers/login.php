@@ -1,23 +1,23 @@
 <?php
 
-class Login extends Controller {
+class Login extends Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-	function __construct() {
-		parent::__construct();
-	}
+    public function index()
+    {
+        $this->view->title = 'Login';
 
-	function index()
-	{
-		$this->view->title = 'Login';
+        $this->view->render('header');
+        $this->view->render('login/index');
+        $this->view->render('footer');
+    }
 
-		$this->view->render('header');
-		$this->view->render('login/index');
-		$this->view->render('footer');
-	}
-
-	function run()
-	{
-		$this->model->run();
-	}
-
+    public function run()
+    {
+        $this->model->run();
+    }
 }

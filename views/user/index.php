@@ -15,16 +15,16 @@
 	
 <table>
 <?php
-	foreach($this->userList as $key => $value) {
-		echo "<tr>";
-		echo "<td>" . $value['userid'] . "</td>";
-		echo "<td>" . $value['login'] . "</td>";
-		echo "<td>" . $value['role'] . "</td>";
-		echo "<td>
+    foreach ($this->userList as $key => $value) {
+        echo "<tr>";
+        echo "<td>" . $value['userid'] . "</td>";
+        echo "<td>" . $value['login'] . "</td>";
+        echo "<td>" . $value['role'] . "</td>";
+        echo "<td>
 			<a href='".URL."user/edit/".$value['userid']."'>Edit</a>
 			<a href='".URL."user/delete/".$value['userid']."'>Delete</a></td>";
-		echo "</tr>";
-	}
-	//print_r($this->userList);
+        echo "</tr>";
+    }
+    //print_r($this->userList);
 ?>
 </table>

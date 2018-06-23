@@ -10,14 +10,14 @@
 	
 <table>
 <?php
-	foreach($this->noteList as $key => $value) {
-		 echo "<tr>";
-		 echo "<td>" . $value['title'] . "</td>";
-		 echo "<td>" . $value['date_added'] . "</td>";
-		 echo "<td><a href='" . URL . "note/edit/" . $value['noteid'] . "'>Edit</a></td>";
-		 echo "<td><a class='delete' href='" . URL . "note/delete/" . $value['noteid'] . "'>Delete</a></td>";
-		 echo "</tr>";
-	}
+    foreach ($this->noteList as $key => $value) {
+        echo "<tr>";
+        echo "<td>" . $value['title'] . "</td>";
+        echo "<td>" . $value['date_added'] . "</td>";
+        echo "<td><a href='" . URL . "note/edit/" . $value['noteid'] . "'>Edit</a></td>";
+        echo "<td><a class='delete' href='" . URL . "note/delete/" . $value['noteid'] . "'>Delete</a></td>";
+        echo "</tr>";
+    }
 ?>
 </table>
 

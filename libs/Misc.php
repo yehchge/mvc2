@@ -1,19 +1,16 @@
 <?php
 
-class Misc {
-
-
+class Misc
+{
     public static function sGetIP()
     {
-        if (!empty($_SERVER["HTTP_CLIENT_IP"])){
+        if (!empty($_SERVER["HTTP_CLIENT_IP"])) {
             $ip = $_SERVER["HTTP_CLIENT_IP"];
-        }elseif(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){
+        } elseif (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
             $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-        }else{
+        } else {
             $ip = $_SERVER["REMOTE_ADDR"];
         }
         return $ip;
     }
-
-
 }

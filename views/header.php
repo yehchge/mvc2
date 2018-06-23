@@ -8,14 +8,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<?php echo URL; ?>public/js/custom.js"></script>
 	<?php
-	if (isset($this->js))
-	{
-		foreach ($this->js as $js)
-		{
-			echo '<script type="text/javascript" src="'.URL.'views/'.$js.'"></script>';
-		}
-	}
-	?>
+    if (isset($this->js)) {
+        foreach ($this->js as $js) {
+            echo '<script type="text/javascript" src="'.URL.'views/'.$js.'"></script>';
+        }
+    }
+    ?>
 </head>
 <body>
 
@@ -23,15 +21,15 @@
 
 <div id="header">
 
-	<?php if (Session::get('loggedIn') == false ): ?>
+	<?php if (Session::get('loggedIn') == false): ?>
 		<a href="<?php echo URL; ?>index">Index</a>
 		<a href="<?php echo URL; ?>help">Help</a>
 	<?php endif; ?>
-	<?php if (Session::get('loggedIn') == true ): ?>
+	<?php if (Session::get('loggedIn') == true): ?>
 		<a href="<?php echo URL; ?>dashboard">Dashborad</a>
 		<a href="<?php echo URL; ?>note">Notes</a>
 
-		<?php if (Session::get('role') == 'owner' ): ?>
+		<?php if (Session::get('role') == 'owner'): ?>
 		<a href="<?php echo URL; ?>user">Users</a>
 		<?php endif; ?>
 
