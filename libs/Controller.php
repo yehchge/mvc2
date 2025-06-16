@@ -1,7 +1,10 @@
 <?php
 
-class Controller
+class Controller extends \stdClass
 {
+    public $view;
+    public $model;
+
     public function __construct()
     {
         //echo 'Main controller<br />';

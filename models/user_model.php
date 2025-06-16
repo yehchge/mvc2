@@ -9,17 +9,17 @@ class User_Model extends Model
 
     public function userList()
     {
-        return $this->db->select('SELECT userid, login, role FROM user');
+        return $this->db->select('SELECT userid, login, role FROM mvc_user');
     }
 
     public function userSingleList($userid)
     {
-        return $this->db->select('SELECT userid, login, role FROM user WHERE userid = :userid', [':userid' => $userid]);
+        return $this->db->select('SELECT userid, login, role FROM mvc_user WHERE userid = :userid', [':userid' => $userid]);
     }
 
     public function create($data)
     {
-        $this->db->insert('user', [
+        $this->db->insert('mvc_user', [
             'login' => $data['login'],
             'password' => Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
             'role' => $data['role'],
@@ -34,17 +34,17 @@ class User_Model extends Model
             'role' => $data['role'],
         ];
 
-        $this->db->update('user', $postData, "`userid` = {$data['userid']}");
+        $this->db->update('mvc_user', $postData, "`userid` = {$data['userid']}");
     }
 
     public function delete($userid)
     {
-        $result = $this->db->select('SELECT role FROM user WHERE userid = :userid', [':userid' => $userid]);
+        $result = $this->db->select('SELECT role FROM mvc_user WHERE userid = :userid', [':userid' => $userid]);
 
         if ($result[0]['role'] == 'owner') {
             return false;
         }
 
-        $this->db->delete('user', "userid = '$userid'");
+        $this->db->delete('mvc_user', "userid = '$userid'");
     }
 }

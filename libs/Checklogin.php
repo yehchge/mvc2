@@ -7,7 +7,7 @@ class Checklogin
         $login = isset($_COOKIE['username']) ? trim($_COOKIE['username']) : '';
         if ($login) {
             $oDB = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
-            $sth = $oDB->prepare('SELECT userid, login, role FROM user WHERE
+            $sth = $oDB->prepare('SELECT userid, login, role FROM mvc_user WHERE
                     login_session = :login');
             $sth->execute([
                 ':login' => $login,

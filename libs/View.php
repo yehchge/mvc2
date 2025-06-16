@@ -1,6 +1,6 @@
 <?php
 
-class View
+class View extends \stdClass
 {
     public function __construct()
     {

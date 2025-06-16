@@ -9,7 +9,7 @@ class Login_Model extends Model
 
     public function run()
     {
-        $sth = $this->db->prepare('SELECT userid, login, role FROM user WHERE
+        $sth = $this->db->prepare('SELECT userid, login, role FROM mvc_user WHERE
 				login = :login AND password = :password');
         $sth->execute([
             ':login' => $_POST['login'],
@@ -38,7 +38,7 @@ class Login_Model extends Model
                 'login_session' => $cookiehash,
             ];
 
-            $this->db->update('user', $postData, "`userid` = '{$data['userid']}'");
+            $this->db->update('mvc_user', $postData, "`userid` = '{$data['userid']}'");
 
             header('location: ../dashboard');
         } else {

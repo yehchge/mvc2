@@ -11,8 +11,8 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- 導出 mvc2 的資料庫結構
-CREATE DATABASE IF NOT EXISTS `mvc2` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `mvc2`;
+-- CREATE DATABASE IF NOT EXISTS `mvc2` !40100 DEFAULT CHARACTER SET utf8mb4 ;
+-- USE `mvc2`;
 
 
 -- 導出  表 mvc2.data 結構
@@ -76,8 +76,8 @@ INSERT INTO `person` (`name`, `personid`, `age`, `gender`) VALUES
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 
 
--- 導出  表 mvc2.user 結構
-CREATE TABLE IF NOT EXISTS `user` (
+-- 導出  表 mvc2.mvc_user 結構
+CREATE TABLE IF NOT EXISTS `mvc_user` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(25) NOT NULL,
   `password` varchar(32) NOT NULL,
@@ -86,15 +86,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`userid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 
--- 正在導出表  mvc2.user 的資料：5 rows
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`userid`, `login`, `password`, `role`, `login_session`) VALUES
+-- 正在導出表  mvc2.mvc_user 的資料：5 rows
+/*!40000 ALTER TABLE `mvc_user` DISABLE KEYS */;
+INSERT INTO `mvc_user` (`userid`, `login`, `password`, `role`, `login_session`) VALUES
 	(1, 'bill', 'f2f5a8950c0e218967dda7120648288a', 'owner', ''),
 	(7, 'test12', '09c78f479e758519ce90d69ddc19c3e4', 'owner', ''),
 	(8, 'demo', '88f2dccb02b2a20615211e5492f85204', 'owner', '34229989384a4cb26ca5c0b3bdba4ae8'),
 	(34, 'jesse2', '8aa8c12fd71338d4ed652ffe41cdb792', 'default', '603e08b1a82f160ae9012afb9be5c33c'),
 	(35, 'test33', '37017ef30e2adb8e9de2846a03e6caa1', 'default', '');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+/*!40000 ALTER TABLE `mvc_user` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
